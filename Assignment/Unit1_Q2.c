@@ -3,6 +3,7 @@ rearrangement is necessary. Write a C program using Insertion Sort that accepts 
 the array after every pass, counts the total number of element shifts, and displays the final sorted
 list and shift count.*/
 
+
 #include <stdio.h>
 
 int main() {
@@ -12,8 +13,9 @@ int main() {
     scanf("%d", &n);
 
     printf("Enter marks:\n");
-    for (i = 0; i < n; i++)
+    for (i = 0; i < n; i++) {
         scanf("%d", &a[i]);
+    }
 
     for (i = 1; i < n; i++) {
         key = a[i];
@@ -21,23 +23,25 @@ int main() {
 
         while (j >= 0 && a[j] > key) {
             a[j + 1] = a[j];
-            shifts++;
             j--;
+            shifts++;
         }
 
         a[j + 1] = key;
 
         printf("After pass %d: ", i);
-        for (j = 0; j < n; j++)
-            printf("%d ", a[j]);
+        for (int k = 0; k < n; k++) {
+            printf("%d ", a[k]);
+        }
         printf("\n");
     }
 
-    printf("Final sorted list: ");
-    for (i = 0; i < n; i++)
+    printf("Sorted marks: ");
+    for (i = 0; i < n; i++) {
         printf("%d ", a[i]);
+    }
 
-    printf("\nTotal number of shifts: %d\n", shifts);
+    printf("\nTotal element shifts: %d\n", shifts);
 
     return 0;
 }
