@@ -1,3 +1,8 @@
+/*Develop a C program for a Doubly Linked List representing a sequence of web pages visited by a
+user. The program should insert a new page, move forward and backward, delete a specified
+page, and display the pages from first-to-last and last-to-first while handling beginning and end
+conditions correctly.*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

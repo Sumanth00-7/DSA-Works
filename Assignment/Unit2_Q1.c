@@ -1,7 +1,7 @@
-/* An expression-processing application receives an arithmetic expression in infix form. Write a C
+/*An expression-processing application receives an arithmetic expression in infix form. Write a C
 program using a stack to convert it to postfix form while correctly handling parentheses and
 operator precedence for +, -, *, / and ^. Test the program using an expression containing multiple
-operators and parentheses. */
+operators and parentheses.*/
 
 #include <stdio.h>
 #include <ctype.h>

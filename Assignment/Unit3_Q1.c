@@ -1,3 +1,8 @@
+/*A department maintains student roll numbers dynamically. Write a C program using a Singly
+Linked List to create the list, insert at the beginning and end, search for a specified roll number,
+delete a specified roll number, and display the updated list after each operation. Handle the case
+when a requested roll number is not available.*/
+
 #include <stdio.h>
 #include <stdlib.h>
 
