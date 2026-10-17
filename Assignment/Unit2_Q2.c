@@ -3,8 +3,8 @@ Write a C program to implement a Circular Queue using an array with insertion, d
 overflow and underflow operations. Demonstrate that positions freed after deletion can be reused
 for new requests. */
 
-#include <stdio.h>
 
+#include <stdio.h>
 #define MAX 5
 
 int queue[MAX];
@@ -12,7 +12,7 @@ int front = -1, rear = -1;
 
 void insert(int value) {
     if ((rear + 1) % MAX == front) {
-        printf("Queue Overflow\n");
+        printf("Queue Overflow!\n");
         return;
     }
 
@@ -21,23 +21,20 @@ void insert(int value) {
 
     rear = (rear + 1) % MAX;
     queue[rear] = value;
-    printf("%d inserted\n", value);
+
+    printf("%d inserted into queue.\n", value);
 }
 
 void delete() {
-    int value;
-
     if (front == -1) {
-        printf("Queue Underflow\n");
+        printf("Queue Underflow!\n");
         return;
     }
 
-    value = queue[front];
-    printf("%d deleted\n", value);
+    printf("%d deleted from queue.\n", queue[front]);
 
     if (front == rear) {
-        front = -1;
-        rear = -1;
+        front = rear = -1;
     } else {
         front = (front + 1) % MAX;
     }
@@ -47,11 +44,11 @@ void display() {
     int i;
 
     if (front == -1) {
-        printf("Queue is empty\n");
+        printf("Queue is empty.\n");
         return;
     }
 
-    printf("Queue: ");
+    printf("Queue elements: ");
     i = front;
 
     while (1) {
@@ -67,25 +64,39 @@ void display() {
 }
 
 int main() {
-    insert(10);
-    insert(20);
-    insert(30);
-    insert(40);
-    insert(50);
+    int choice, value;
 
-    display();
+    while (1) {
+        printf("\n--- Circular Queue ---\n");
+        printf("1. Insert\n");
+        printf("2. Delete\n");
+        printf("3. Display\n");
+        printf("4. Exit\n");
+        printf("Enter choice: ");
+        scanf("%d", &choice);
 
-    delete();
-    delete();
+        switch (choice) {
+            case 1:
+                printf("Enter request ID: ");
+                scanf("%d", &value);
+                insert(value);
+                display();
+                break;
 
-    display();
+            case 2:
+                delete();
+                display();
+                break;
 
-    insert(60);
-    insert(70);
+            case 3:
+                display();
+                break;
 
-    display();
+            case 4:
+                return 0;
 
-    insert(80);
-
-    return 0;
+            default:
+                printf("Invalid choice!\n");
+        }
+    }
 }
